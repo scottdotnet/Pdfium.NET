@@ -18,8 +18,14 @@ namespace Pdfium.NET
             _pages = new List<PdfPage>(Enumerable.Repeat<PdfPage>(null, Count));
         }
 
+        /// <summary>
+		/// Gets the number of pages in the <see cref="PdfDocument"/>.
+		/// </summary>
         public int Count => FPDF.FPDF_GetPageCount(_doc.Handle);
 
+        /// <summary>
+		/// Gets the <see cref="PdfPage"/> at the zero-based <paramref name="index"/> in the <see cref="PdfDocument"/>.
+		/// </summary>
         public PdfPage this[int index]
         {
             get
@@ -106,6 +112,10 @@ namespace Pdfium.NET
             return result;
         }
 
+        /// <summary>
+		/// Imports pages of <paramref name="sourceDocument"/> into the current <see cref="PdfDocument"/>.
+		/// </summary>
+		/// <seealso cref="Internal.Pdfium.FPDF_ImportPages(Internal.Types.FPDF_DOCUMENT, Internal.Types.FPDF_DOCUMENT, int, int[])"/>
         public bool Add(PdfDocument sourceDocument, params int[] srcPageIndices)
             => Insert(Count, sourceDocument, srcPageIndices);
 

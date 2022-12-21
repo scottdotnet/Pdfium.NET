@@ -42,13 +42,13 @@ namespace Pdfium.NET.Internal.Imports
         /// 3 - Rotated 270 degrees clockwise.
         /// </returns>
         [DllImport("pdfium.dll")]
-        public static extern int FPDFPage_GetRotation(FPDF_PAGE page);
+        public static extern PageOrientations FPDFPage_GetRotation(FPDF_PAGE page);
 
         /// <summary>
         /// Set rotation for <paramref name="page"/>.
         /// </summary>
         /// <param name="page">Handle to a page.</param>
-        /// <param name="rotate">
+        /// <param name="rotation">
         /// The rotation value, one of:<br/>
         /// 0 - No rotation.<br/>
         /// 1 - Rotated 90 degrees clockwise.<br/>
@@ -56,7 +56,7 @@ namespace Pdfium.NET.Internal.Imports
         /// 3 - Rotated 270 degrees clockwise.
         /// </param>
         [DllImport("pdfium.dll")]
-        public static extern void FPDFPage_SetRotation(FPDF_PAGE page, int rotate);
+        public static extern void FPDFPage_SetRotation(FPDF_PAGE page, PageOrientations rotation);
 
         /// <summary>
         /// Insert <paramref name="page_obj"/> into <paramref name="page"/>.

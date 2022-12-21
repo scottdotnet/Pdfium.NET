@@ -8,9 +8,30 @@ namespace Pdfium.NET
     {
         public PdfDocument Document { get; }
 
+        /// <summary>
+		/// Gets the page width (excluding non-displayable area) measured in points.
+		/// One point is 1/72 inch(around 0.3528 mm).
+		/// </summary>
         public double Width => FPDF.FPDF_GetPageWidth(_page);
+
+        /// <summary>
+		/// Gets the page height (excluding non-displayable area) measured in points.
+		/// One point is 1/72 inch(around 0.3528 mm).
+		/// </summary>
         public double Height => FPDF.FPDF_GetPageHeight(_page);
 
+        /// <summary>
+		/// Gets the page orientation.
+		/// </summary>
+		public PageOrientations Orientation
+        {
+            get => FPDF_Edit.FPDFPage_GetRotation(Handle);
+            set => FPDF_Edit.FPDFPage_SetRotation(Handle, value);
+        }
+
+        /// <summary>
+		/// Gets the zero-based index of the page in the <see cref="Document"/>
+		/// </summary>
         public int Index { get; internal set; } = -1;
 
         private readonly FPDF_PAGE _page;
@@ -35,6 +56,10 @@ namespace Pdfium.NET
             FPDF.FPDF_ClosePage(handle);
         }
 
+        /// <summary>
+        /// Gets all the text found on the page.
+        /// </summary>
+        /// <returns>Returns a string of text</returns>
         public string GetText()
             => Internal.Pdfium.FPDFText_GetText(_textPage, 0, FPDF_Text.FPDFText_CountChars(_textPage));
     }
