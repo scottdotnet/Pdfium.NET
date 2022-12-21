@@ -1,4 +1,6 @@
-﻿namespace PdfiumSharp.Internal.Types
+﻿using System;
+
+namespace PdfiumSharp.Internal.Types
 {
     public abstract class NativeWrapper<T> : IDisposable
         where T : struct, IHandle<T>

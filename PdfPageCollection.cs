@@ -1,6 +1,9 @@
 ﻿using PdfiumSharp.Internal;
 using PdfiumSharp.Internal.Imports;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PdfiumSharp
 {
@@ -33,8 +36,8 @@ namespace PdfiumSharp
 
         public void Dispose()
         {
-            foreach (IDisposable page in _pages)
-                page?.Dispose();
+            foreach (var page in _pages)
+                (page as IDisposable)?.Dispose();
 
             _pages.Clear();
         }

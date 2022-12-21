@@ -1,5 +1,6 @@
 ﻿using PdfiumSharp.Internal.Imports;
 using PdfiumSharp.Internal.Types;
+using System;
 
 namespace PdfiumSharp.Internal
 {
