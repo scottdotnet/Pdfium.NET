@@ -5,7 +5,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 
-namespace PdfiumSharp.Internal
+namespace Pdfium.NET.Internal
 {
     public static partial class NativeMethods
     {

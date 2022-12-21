@@ -1,8 +1,8 @@
-﻿using PdfiumSharp.Internal.Imports;
-using PdfiumSharp.Internal.Types;
+﻿using Pdfium.NET.Internal.Imports;
+using Pdfium.NET.Internal.Types;
 using System;
 
-namespace PdfiumSharp.Internal
+namespace Pdfium.NET.Internal
 {
     public sealed class PDFiumException : Exception
     {

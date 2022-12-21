@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct HDC : IHandle<HDC>

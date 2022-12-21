@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct FS_QUADPOINTSF

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     [StructLayout(LayoutKind.Sequential)]
     public class IFSDK_PAUSE

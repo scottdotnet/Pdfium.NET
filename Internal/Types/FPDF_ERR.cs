@@ -1,4 +1,4 @@
-﻿namespace PdfiumSharp.Internal.Types
+﻿namespace Pdfium.NET.Internal.Types
 {
     public enum FPDF_ERR : uint
     {

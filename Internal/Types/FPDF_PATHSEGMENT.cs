@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct FPDF_PATHSEGMENT : IHandle<FPDF_PATHSEGMENT>

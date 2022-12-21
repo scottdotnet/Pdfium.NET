@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     public abstract class NativeWrapper<T> : IDisposable
         where T : struct, IHandle<T>

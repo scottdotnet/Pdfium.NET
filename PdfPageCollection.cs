@@ -1,11 +1,11 @@
-﻿using PdfiumSharp.Internal;
-using PdfiumSharp.Internal.Imports;
+﻿using Pdfium.NET.Internal;
+using Pdfium.NET.Internal.Imports;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PdfiumSharp
+namespace Pdfium.NET
 {
     public sealed class PdfPageCollection : IEnumerable<PdfPage>, IDisposable
     {

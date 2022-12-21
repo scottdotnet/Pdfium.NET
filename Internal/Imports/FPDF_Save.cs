@@ -1,7 +1,7 @@
-﻿using PdfiumSharp.Internal.Types;
+﻿using Pdfium.NET.Internal.Types;
 using System.Runtime.InteropServices;
 
-namespace PdfiumSharp.Internal.Imports
+namespace Pdfium.NET.Internal.Imports
 {
     internal static class FPDF_Save
     {

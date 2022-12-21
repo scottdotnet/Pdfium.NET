@@ -1,8 +1,8 @@
-﻿using PdfiumSharp.Internal;
-using PdfiumSharp.Internal.Imports;
-using PdfiumSharp.Internal.Types;
+﻿using Pdfium.NET.Internal;
+using Pdfium.NET.Internal.Imports;
+using Pdfium.NET.Internal.Types;
 
-namespace PdfiumSharp
+namespace Pdfium.NET
 {
     public sealed class PdfPage : NativeWrapper<FPDF_PAGE>
     {

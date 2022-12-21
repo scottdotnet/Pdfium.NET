@@ -1,4 +1,4 @@
-﻿namespace PdfiumSharp.Internal
+﻿namespace Pdfium.NET.Internal
 {
     public interface IHandle<T>
     {

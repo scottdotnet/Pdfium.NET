@@ -1,4 +1,4 @@
-﻿namespace PdfiumSharp.Internal.Types
+﻿namespace Pdfium.NET.Internal.Types
 {
     /// <summary>
     /// PDF text rendering modes

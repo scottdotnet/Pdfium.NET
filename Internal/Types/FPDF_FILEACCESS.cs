@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate bool FileReadBlockHandler(IntPtr ignore, int position, IntPtr buffer, int size);

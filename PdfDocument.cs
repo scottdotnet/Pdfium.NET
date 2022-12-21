@@ -1,10 +1,10 @@
-﻿using PdfiumSharp.Internal;
-using PdfiumSharp.Internal.Imports;
-using PdfiumSharp.Internal.Types;
+﻿using Pdfium.NET.Internal;
+using Pdfium.NET.Internal.Imports;
+using Pdfium.NET.Internal.Types;
 using System;
 using System.IO;
 
-namespace PdfiumSharp
+namespace Pdfium.NET
 {
     public sealed class PdfDocument : NativeWrapper<FPDF_DOCUMENT>
     {

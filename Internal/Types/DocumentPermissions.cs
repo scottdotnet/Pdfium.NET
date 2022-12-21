@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PdfiumSharp.Internal.Types
+namespace Pdfium.NET.Internal.Types
 {
     /// <summary>
 	/// Flags specifying document permissions.
