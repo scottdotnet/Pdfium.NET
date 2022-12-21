@@ -85,6 +85,23 @@ namespace Pdfium.NET
         }
 
         /// <summary>
+        /// Saves the <see cref="PdfDocument"/> to a byte array
+        /// </summary>
+        /// <param name="version">
+		/// The new PDF file version of the saved file.
+		/// 14 for 1.4, 15 for 1.5, etc. Values smaller than 10 are ignored.
+		/// </param>
+        /// <returns></returns>
+        public byte[] Save(SaveFlags flags = SaveFlags.None, int version = 0)
+        {
+            using var ms = new MemoryStream();
+
+            Save(ms, flags, version);
+
+            return ms.ToArray();
+        }
+
+        /// <summary>
 		/// Closes the <see cref="PdfDocument"/> and frees unmanaged resources.
 		/// </summary>
         public void Close() => ((IDisposable)this).Dispose();
