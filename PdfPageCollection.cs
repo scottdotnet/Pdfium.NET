@@ -82,7 +82,7 @@ namespace Pdfium.NET
 
             if (index <= _pages.Count)
             {
-                result = Pdfium.FPDF_ImportPages(_doc.Handle, sourceDocument.Handle, index, srcPageIndicies);
+                result = Internal.Pdfium.FPDF_ImportPages(_doc.Handle, sourceDocument.Handle, index, srcPageIndicies);
 
                 if (result)
                 {

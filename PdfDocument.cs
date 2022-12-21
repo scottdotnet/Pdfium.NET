@@ -25,13 +25,13 @@ namespace Pdfium.NET
             : this(FPDF.FPDF_LoadDocument(fileName, password)) { }
 
         public PdfDocument(byte[] data, int index = 0, int count = -1, string password = null)
-            : this(Pdfium.FPDF_LoadDocument(data, index, count, password)) { }
+            : this(Internal.Pdfium.FPDF_LoadDocument(data, index, count, password)) { }
 
         public PdfDocument(Stream stream, int count = 0, string password = null)
-            : this(Pdfium.FPDF_LoadDocument(stream, count, password)) { }
+            : this(Internal.Pdfium.FPDF_LoadDocument(stream, count, password)) { }
 
         public bool Save(Stream stream, SaveFlags flags = SaveFlags.None, int version = 0)
-            => Pdfium.FPDF_SaveAsCopy(Handle, stream, flags, version);
+            => Internal.Pdfium.FPDF_SaveAsCopy(Handle, stream, flags, version);
 
         public bool Save(string file, SaveFlags flags = SaveFlags.None, int version = 0)
         {

@@ -36,6 +36,6 @@ namespace Pdfium.NET
         }
 
         public string GetText()
-            => Pdfium.FPDFText_GetText(_textPage, 0, FPDF_Text.FPDFText_CountChars(_textPage));
+            => Internal.Pdfium.FPDFText_GetText(_textPage, 0, FPDF_Text.FPDFText_CountChars(_textPage));
     }
 }
