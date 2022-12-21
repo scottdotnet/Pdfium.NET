@@ -5,10 +5,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-    
-env:
-    NUGET_FEED: https://api.nuget.org/v3/index.json
-    NUGET_KEY: ${{ secrets.NUGET_KEY }}
 
 jobs:
   build:
@@ -27,11 +23,11 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Pack
       run: dotnet pack --no-build --verbosity normal -c Release -o artifacts/
     - name: Push to NuGet
       if: ${{ success() && !github.base_ref }}
-      run: dotnet nuget push artifacts/**.nupkg -s $NUGET_FEED --api-key $NUGET_KEY
+      run: dotnet nuget push artifacts/**.nupkg -s https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_KEY}}
