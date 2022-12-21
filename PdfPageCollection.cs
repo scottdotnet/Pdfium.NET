@@ -82,8 +82,12 @@ namespace Pdfium.NET
 
             if (index <= _pages.Count)
             {
-                if (srcPageIndicies.Length == 0)
-                    srcPageIndicies = FPDF.FPDF_GetPageCount(sourceDocument.Handle).ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x) - 1).ToArray(); ;
+                /*if (srcPageIndicies.Length == 0)
+                    //srcPageIndicies = FPDF.FPDF_GetPageCount(sourceDocument.Handle).ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x) - 1).ToArray();
+                    srcPageIndicies = Enumerable.Range(0, FPDF.FPDF_GetPageCount(sourceDocument.Handle)).ToArray();
+
+                var a = FPDF.FPDF_GetPageCount(sourceDocument.Handle).ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x) - 1).ToArray();
+                var b = Enumerable.Range(0, FPDF.FPDF_GetPageCount(sourceDocument.Handle)).ToArray();*/
 
                 result = Internal.Pdfium.FPDF_ImportPages(_doc.Handle, sourceDocument.Handle, index, srcPageIndicies);
 
