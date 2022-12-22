@@ -61,6 +61,13 @@ namespace Pdfium.NET
         /// </summary>
         /// <returns>Returns a string of text</returns>
         public string GetText()
-            => Internal.Pdfium.FPDFText_GetText(_textPage, 0, FPDF_Text.FPDFText_CountChars(_textPage));
+        {
+            var count = FPDF_Text.FPDFText_CountChars(_textPage);
+
+            if (count == 0)
+                return string.Empty;
+
+            return Internal.Pdfium.FPDFText_GetText(_textPage, 0, count);
+        }
     }
 }
