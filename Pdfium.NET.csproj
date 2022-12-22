@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <Content Include="pdfium.dll">
-		  <Pack>true</Pack>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
+    <None Update="pdfium.dll">
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
