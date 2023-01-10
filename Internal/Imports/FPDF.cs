@@ -10,7 +10,7 @@ namespace Pdfium.NET.Internal.Imports
         /// Initialize the FPDFSDK library
         /// Convenience function to call FPDF_InitLibraryWithConfig() for backwards compatibility purposes. This will be deprecated in the future.
         /// </summary>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_InitLibrary();
 
         /// <summary>
@@ -18,13 +18,13 @@ namespace Pdfium.NET.Internal.Imports
         /// You have to call this function before you can call any PDF processing functions.
         /// </summary>
         /// <param name="config">Configuration information.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_InitLibraryWithConfig(ref FPDF_LIBRARY_CONFIG config);
 
         /// <summary>
         /// Release all resources allocated by the FPDFSDK library.
         /// </summary>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_DestroyLibrary();
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="file_path">Path to the PDF file (including extension).</param>
         /// <param name="password">A string used as the password for the PDF file. If no password is needed, empty or NULL can be used.See comments below regarding the encoding.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DOCUMENT FPDF_LoadDocument([MarshalAs(UnmanagedType.LPStr)] string file_path, [MarshalAs(UnmanagedType.LPStr)] string password);
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="size">Number of bytes in the PDF document.</param>
         /// <param name="password">A string used as the password for the PDF file. If no password is needed, empty or NULL can be used.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DOCUMENT FPDF_LoadMemDocument(ref byte data_buf, int size, [MarshalAs(UnmanagedType.LPStr)] string password);
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="fileRead">A structure for accessing the file.</param>
         /// <param name="password">Optional password for decrypting the PDF file.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DOCUMENT FPDF_LoadCustomDocument(FPDF_FILEREAD fileRead, [MarshalAs(UnmanagedType.LPStr)] string password);
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="doc">Handle to a document.</param>
         /// <param name="fileVersion">The PDF file version. File version: 14 for 1.4, 15 for 1.5, ...</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_GetFileVersion(FPDF_DOCUMENT doc, out int fileVersion);
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Pdfium.NET.Internal.Imports
         /// If the previous SDK call succeeded, the return value of this function is not defined. This function only works in conjunction with APIs that mention FPDF_GetLastError() in their documentation.
         /// </summary>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_ERR FPDF_GetLastError();
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to a document. Returned by FPDF_LoadDocument.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_DocumentHasValidCrossReferenceTable(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buffer">The address of a buffer that receives the byte offsets.</param>
         /// <param name="length">The size, in ints, of <paramref name="buffer"/>.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_GetTrailerEnds(FPDF_DOCUMENT document, ref byte buffer, out long length);
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to a document. Returned by FPDF_LoadDocument.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern uint FPDF_GetDocPermissions(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to a document. Returned by FPDF_LoadDocument.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to document. Returned by FPDF_LoadDocument.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_GetPageCount(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="document">Handle to document. Returned by FPDF_LoadDocument.</param>
         /// <param name="page_index">Index number of the page. 0 for the first page.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_PAGE FPDF_LoadPage(FPDF_DOCUMENT document, int page_index);
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage().</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern float FPDF_GetPageWidthF(FPDF_PAGE page);
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage().</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern double FPDF_GetPageWidth(FPDF_PAGE page);
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage().</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern float FPDF_GetPageHeightF(FPDF_PAGE page);
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage().</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern double FPDF_GetPageHeight(FPDF_PAGE page);
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage.</param>
         /// <param name="rect">Pointer to a rect to receive the page bounding box. On an error, <paramref name="rect"/> won't be filled.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_GetPageBoundingBox(FPDF_PAGE page, out FS_RECTF rect);
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="page_index">Page index, zero for the first page.</param>
         /// <param name="size">Pointer to a FS_SIZEF to receive the page size (in points).</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_GetPageSizeByIndexF(FPDF_DOCUMENT document, int page_index, out FS_SIZEF size);
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="width">Pointer to a double to receive the page width (in points).</param>
         /// <param name="height">Pointer to a double to receive the page height (in points).</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document, int page_index, out double width, out double height);
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="size_y">Vertical size (in pixels) for displaying the page.</param>
         /// <param name="rotate">Page orientation: 0 (normal), 1 (rotated 90 degrees clockwise), 2 (rotated 180 degrees), 3 (rotated 90 degrees counter-clockwise)</param>
         /// <param name="flags">0 for normal display, or combination of flags defined above.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_RenderPage(HDC dc, FPDF_PAGE page, int start_x, int start_y, int size_x, int size_y, int rotate, int flags);
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="size_y">Vertical size (in pixels) for displaying the page.</param>
         /// <param name="rotate">Page orientation: 0 (normal), 1 (rotated 90 degrees clockwise), 2 (rotated 180 degrees), 3 (rotated 90 degrees counter-clockwise)</param>
         /// <param name="flags">0 for normal display, or combination of flags defined above.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_RenderPageBitmap(FPDF_BITMAP bitmap, FPDF_PAGE page, int start_x, int start_y, int size_x, int size_y, int rotate, int flags);
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="matrix">The transform matrix, which must be invertible. See PDF Reference 1.7, 4.2.2 Common Transformations.</param>
         /// <param name="clipping">The rect to clip to in device coords.</param>
         /// <param name="flags">0 for normal display, or combination of the Page Rendering flags defined above. With the FPDF_ANNOT flag, it renders all annotations that do not require user-interaction, which are all annotations except widget and popup annotations.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap, FPDF_PAGE page, out FS_MATRIX matrix, out FS_RECTF clipping, int flags);
 
         /// <summary>
@@ -246,21 +246,21 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="size_x">Horizontal size (in pixels) for displaying the page.</param>
         /// <param name="size_y">Vertical size (in pixels) for displaying the page.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_RECORDER FPDF_RenderPageSkp(FPDF_PAGE page, int size_x, int size_y);
 
         /// <summary>
         /// Close a loaded PDF page.
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_ClosePage(FPDF_PAGE page);
 
         /// <summary>
         /// Close a loaded PDF document.
         /// </summary>
         /// <param name="document">Handle to the loaded document. Returned by FPDF_LoadDocument</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDF_CloseDocument(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="page_x">A pointer to a double receiving the converted X value in page coordinates.</param>
         /// <param name="page_y">A pointer to a double receiving the converted Y value in page coordinates.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_DeviceToPage(FPDF_PAGE page, int start_x, int start_y, int size_x, int size_y, int rotate, int device_x, int device_y, out double page_x, out double page_y);
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="device_x">A pointer to an integer receiving the result X value in device coordinates.</param>
         /// <param name="device_y">A pointer to an integer receiving the result Y value in device coordinates.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_PageToDevice(FPDF_PAGE page, int start_x, int start_y, int size_x, int size_y, int rotate, double page_x, double page_y, out int device_x, out int device_y);
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="height">The number of pixels in height for the bitmap. Must be greater than 0.</param>
         /// <param name="alpha">A flag indicating whether the alpha channel is used. Non-zero for using alpha, zero for not using.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_BITMAP FPDFBitmap_Create(int width, int height, int alpha);
 
         /// <summary>
@@ -321,7 +321,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="first_scan">A pointer to the first byte of the first line if using an external buffer. If this parameter is NULL, then a new buffer will be created.</param>
         /// <param name="stride">Number of bytes for each scan line. The value must be 0 or greater. When the value is 0, FPDFBitmap_CreateEx() will automatically calculate the appropriate value using <paramref name="width"/> and <paramref name="format"/>. When using an external buffer, it is recommended for the caller to pass in the value. When not using an external buffer, it is recommended for the caller to pass in 0.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_BITMAP FPDFBitmap_CreateEx(int width, int height, int format, IntPtr first_scan, int stride);
 
         /// <summary>
@@ -329,7 +329,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFBitmap_GetFormat(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -341,7 +341,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="width">Width in pixels to be filled.</param>
         /// <param name="height">Height in pixels to be filled.</param>
         /// <param name="color">A 32-bit value specifing the color, in 8888 ARGB format.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDFBitmap_FillRect(FPDF_BITMAP bitmap, int left, int top, int width, int height, FPDF_COLOR color);
 
         /// <summary>
@@ -349,7 +349,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern IntPtr FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -357,7 +357,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFBitmap_GetWidth(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFBitmap_GetHeight(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFBitmap_GetStride(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -381,7 +381,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="bitmap">Handle to the bitmap. Returned by FPDFBitmap_Create or FPDFImageObj_GetBitmap.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFBitmap_Destroy(FPDF_BITMAP bitmap);
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to the loaded document.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDF_VIEWERREF_GetPrintScaling(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to the loaded document.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to the loaded document.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_PAGERANGE FPDF_VIEWERREF_GetPrintPageRange(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -413,7 +413,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="pagerange">Handle to the page range.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_VIEWERREF_GetPrintPageRangeCount(FPDF_PAGERANGE pagerange);
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="pagerange">Handle to the page range.</param>
         /// <param name="index">Index of the element.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_VIEWERREF_GetPrintPageRangeElement(FPDF_PAGERANGE pagerange, int index);
 
         /// <summary>
@@ -430,7 +430,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to the loaded document.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DUPLEXTYPE FPDF_VIEWERREF_GetDuplex(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -441,7 +441,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buffer">A string to write the contents of the key to.</param>
         /// <param name="length">Length of the buffer.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern uint FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document, [MarshalAs(UnmanagedType.LPStr)] string key, ref byte buffer, uint length);
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="document">Handle to the loaded document.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDF_CountNamedDests(FPDF_DOCUMENT document);
 
         /// <summary>
@@ -458,7 +458,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="document">Handle to the loaded document.</param>
         /// <param name="name">The name of a destination.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DEST FPDF_GetNamedDestByName(FPDF_DOCUMENT document, [MarshalAs(UnmanagedType.LPStr)] string name);
 
         /// <summary>
@@ -469,7 +469,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buffer">The buffer to store the destination name.</param>
         /// <param name="buflen">Size of the buffer in bytes on input, length of the result in bytes on output or -1 if the buffer is too small.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_DEST FPDF_GetNamedDest(FPDF_DOCUMENT document, int index, IntPtr buffer, out int buflen);
     }
 }

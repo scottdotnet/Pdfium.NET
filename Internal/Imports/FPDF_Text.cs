@@ -11,14 +11,14 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="page">Handle to the page. Returned by FPDF_LoadPage function (in FPDFVIEW module).</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_TEXTPAGE FPDFText_LoadPage(FPDF_PAGE page);
 
         /// <summary>
         /// Release all resources allocated for a text page information structure.
         /// </summary>
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDFText_ClosePage(FPDF_TEXTPAGE text_page);
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_CountChars(FPDF_TEXTPAGE text_page);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         [return: MarshalAs(UnmanagedType.U4)]
         public static extern char FPDFText_GetUnicode(FPDF_TEXTPAGE text_page, int index);
 
@@ -49,7 +49,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_IsGenerated(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_HasUnicodeMapError(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern double FPDFText_GetFontSize(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buflen">The length of <paramref name="buffer"/> in bytes.</param>
         /// <param name="flags">Optional pointer to an int receiving the font flags. These flags should be interpreted per PDF spec 1.7 Section 5.7.1 Font Descriptor Flags.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern double FPDFText_GetFontInfo(FPDF_TEXTPAGE text_page, int index, ref byte buffer, int buflen, int flags);
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetFontWeight(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_TEXT_RENDERMODE FPDFText_GetTextRenderMode(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="B">Pointer to an unsigned int number receiving the blue value of the fill color.</param>
         /// <param name="A">Pointer to an unsigned int number receiving the alpha value of the fill color.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetFillColor(FPDF_TEXTPAGE text_page, int index, out int R, out int G, out int B, out int A);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="B">Pointer to an unsigned int number receiving the blue value of the fill color.</param>
         /// <param name="A">Pointer to an unsigned int number receiving the alpha value of the fill color.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetStrokeColor(FPDF_TEXTPAGE text_page, int index, out int R, out int G, out int B, out int A);
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <param name="index">Zero-based index of the character.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern float FPDFText_GetCharAngle(FPDF_TEXTPAGE text_page, int index);
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="bottom">Pointer to a double number receiving bottom position of the character box.</param>
         /// <param name="top">Pointer to a double number receiving top position of the character box.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetCharBox(FPDF_TEXTPAGE text_page, int index, out double left, out double right, out double bottom, out double top);
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="index">Zero-based index of the character.</param>
         /// <param name="rect">Pointer to a FS_RECTF receiving the character box.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetLooseCharBox(FPDF_TEXTPAGE text_page, int index, out FS_RECTF rect);
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="index">Zero-based index of the character.</param>
         /// <param name="matrix">Pointer to a FS_MATRIX receiving the transformation matrix.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetMatrix(FPDF_TEXTPAGE text_page, int index, out FS_MATRIX matrix);
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="x">Pointer to a double number receiving x coordinate of the character origin.</param>
         /// <param name="y">Pointer to a double number receiving y coordinate of the character origin.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetCharOrigin(FPDF_TEXTPAGE text_page, int index, out double x, out double y);
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="xTolerance">An x-axis tolerance value for character hit detection, in point units.</param>
         /// <param name="yTolerance">An y-axis tolerance value for character hit detection, in point units.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetCharIndexAtPos(FPDF_TEXTPAGE text_page, double x, double y, double xTolerance, double yTolerance);
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="count">Number of characters to be extracted.</param>
         /// <param name="result">A buffer (allocated by application) receiving the extracted unicodes. The size of the buffer must be able to hold the number of characters plus a terminator.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetText(FPDF_TEXTPAGE text_page, int start_index, int count, ref byte result);
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="start_index">Index for the start characters.</param>
         /// <param name="count">Number of characters, or -1 for all remaining.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_CountRects(FPDF_TEXTPAGE text_page, int start_index, int count);
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="right">Pointer to a double value receiving the rectangle right boundary.</param>
         /// <param name="bottom">Pointer to a double value receiving the rectangle bottom boundary.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_GetRect(FPDF_TEXTPAGE text_page, int rect_index, out double left, out double top, out double right, out double bottom);
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buffer">A unicode buffer.</param>
         /// <param name="buflen">Number of characters (not bytes) for the buffer, excluding an additional terminator.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetBoundedText(FPDF_TEXTPAGE text_page, double left, double top, double right, double bottom, ref byte buffer, int buflen);
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="flags">Option flags.</param>
         /// <param name="start_index">Start from this character. -1 for end of the page.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_SCHHANDLE FPDFText_FindStart(FPDF_TEXTPAGE text_page, [MarshalAs(UnmanagedType.LPWStr)] string findwhat, SearchFlags flags, int start_index);
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="handle">A search context handle returned by FPDFText_FindStart.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_FindNext(FPDF_SCHHANDLE handle);
 
         /// <summary>
@@ -269,7 +269,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="handle">A search context handle returned by FPDFText_FindStart.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFText_FindPrev(FPDF_SCHHANDLE handle);
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="handle">A search context handle returned by FPDFText_FindStart.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetSchResultIndex(FPDF_SCHHANDLE handle);
 
         /// <summary>
@@ -285,14 +285,14 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="handle">A search context handle returned by FPDFText_FindStart.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFText_GetSchCount(FPDF_SCHHANDLE handle);
 
         /// <summary>
         /// Release a search context.
         /// </summary>
         /// <param name="handle">A search context handle returned by FPDFText_FindStart.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDFText_FindClose(FPDF_SCHHANDLE handle);
 
         /// <summary>
@@ -302,7 +302,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="text_page">Handle to a text page information structure. Returned by FPDFText_LoadPage function.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern FPDF_PAGELINK FPDFLink_LoadWebLinks(FPDF_TEXTPAGE text_page);
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace Pdfium.NET.Internal.Imports
         /// </summary>
         /// <param name="link_page">Handle returned by FPDFLink_LoadWebLinks.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFLink_CountWebLinks(FPDF_PAGELINK link_page);
 
         /// <summary>
@@ -321,7 +321,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="buffer"></param>
         /// <param name="buflen"></param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFLink_GetURL(FPDF_PAGELINK link_page, int link_index, ref byte buffer, int buflen);
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="link_page">Handle returned by FPDFLink_LoadWebLinks.</param>
         /// <param name="link_index">Zero-based index for the link.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern int FPDFLink_CountRects(FPDF_PAGELINK link_page, int link_index);
 
         /// <summary>
@@ -344,7 +344,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="right">Pointer to a double value receiving the rectangle right boundary.</param>
         /// <param name="bottom">Pointer to a double value receiving the rectangle bottom boundary.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFLink_GetRect(FPDF_PAGELINK link_page, int link_index, int rect_index, out double left, out double top, out double right, out double bottom);
 
         /// <summary>
@@ -355,14 +355,14 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="start_char_index">Pointer to int receiving the start char index.</param>
         /// <param name="char_count">Pointer to int receiving the char count.</param>
         /// <returns></returns>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern bool FPDFLink_GetTextRange(FPDF_PAGELINK link_page, int link_index, out int start_char_index, out int char_count);
 
         /// <summary>
         /// Release resources used by weblink feature.
         /// </summary>
         /// <param name="link_page">Handle returned by FPDFLink_LoadWebLinks.</param>
-        [DllImport("pdfium.dll")]
+        [DllImport("libpdfium.so")]
         public static extern void FPDFLink_CloseWebLinks(FPDF_PAGELINK link_page);
     }
 }
