@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="libpdfium.so" />
+    <None Remove="pdfium.dll" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="libpdfium.so">
+    <Content Include="pdfium.dll">
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
