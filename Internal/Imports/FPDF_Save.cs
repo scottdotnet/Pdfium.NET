@@ -12,7 +12,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="fileWrite">A pointer to a custom file write structure.</param>
         /// <param name="flags">The creating flags.</param>
         /// <returns>TRUE for succeed, FALSE for failed.</returns>
-        [DllImport("libpdfium.so")]
+        [DllImport("pdfium")]
         public static extern bool FPDF_SaveAsCopy(FPDF_DOCUMENT document, FPDF_FILEWRITE fileWrite, SaveFlags flags);
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Pdfium.NET.Internal.Imports
         /// <param name="flags">The creating flags.</param>
         /// <param name="fileVersion">The PDF file version. File version: 14 for 1.4, 15 for 1.5, ...</param>
         /// <returns></returns>
-        [DllImport("libpdfium.so")]
+        [DllImport("pdfium")]
         public static extern bool FPDF_SaveWithVersion(FPDF_DOCUMENT document, FPDF_FILEWRITE fileWrite, SaveFlags flags, int fileVersion);
     }
 }

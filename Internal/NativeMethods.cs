@@ -21,7 +21,7 @@ namespace Pdfium.NET.Internal
                 return false;
 
             path = Path.Combine(path, IntPtr.Size == 4 ? "x86" : "x64");
-            path = Path.Combine(path, "libpdfium.so");
+            path = Path.Combine(path, "pdfium");
 
             return File.Exists(path) && LoadLibrary(path) != IntPtr.Zero;
         }
